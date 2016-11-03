@@ -5,13 +5,25 @@ padding-left: 10px;
 }
 
 #right-panel select, #right-panel input {
-font-size: 15px;
+font-size: 12px;
 }
 #submit {
 visibility: hidden
 }
+#possibility-title {
+visibility: hidden
+}
 #right-panel select {
 width: 100%;
+}
+#possibility0:hover {
+ background-color: LightGray;
+}
+#possibility1:hover {
+ background-color: LightGray;
+}
+#mode{
+visibility: hidden
 }
 
 #right-panel i {
@@ -25,7 +37,7 @@ padding: 0;
 #map {
 height: 100%;
 float: left;
-width: 70%;
+width: 75%;
 height: 100%;
 }
 #right-panel {
