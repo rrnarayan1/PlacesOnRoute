@@ -191,7 +191,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, directio
           if (status === 'OK') {
             directionsDisplay1.setDirections(response);
           }
-        })    
+        })
+        createSummary(waypointPlace)  
     }
     else{
         directionsService.route({
@@ -204,20 +205,24 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, directio
           if (status === 'OK') {
             directionsDisplay.setDirections(response);
             var route = response.routes[0];
-            var summaryPanel = document.getElementById('directions-panel');
-            summaryPanel.innerHTML = '';
-            if(waypointPlace.name != null){
-                summaryPanel.innerHTML += "You're going to be stopping at "+waypointPlace.name+". "
-            } if(waypointPlace.vicinity != null){
-                summaryPanel.innerHTML += "The shop is located at "+waypointPlace.vicinity+". "
-            } if(waypointPlace.formatted_phone_number != null){
-                summaryPanel.innerHTML += "If you want to try ordering ahead, try calling here at "+
-                waypointPlace.formatted_phone_number+"."
-            }
-            summaryPanel.innerHTML += "<br>"
+            createSummary(waypointPlace)
           } else {
             window.alert('Directions request failed due to ' + status);
           }
         });
     }
+}
+function createSummary(waypointPlace){
+    var summaryPanel = document.getElementById('directions-panel');
+    summaryPanel.innerHTML = '';
+    if(waypointPlace.name != null){
+        console.log(waypointPlace.name)
+        summaryPanel.innerHTML += "You're going to be stopping at "+waypointPlace.name+". "
+    } if(waypointPlace.vicinity != null){
+        summaryPanel.innerHTML += "The shop is located at "+waypointPlace.vicinity+". "
+    } if(waypointPlace.formatted_phone_number != null){
+        summaryPanel.innerHTML += "If you want to try ordering ahead, try calling here at "+
+        waypointPlace.formatted_phone_number+"."
+    }
+    summaryPanel.innerHTML += "<br>"
 }
