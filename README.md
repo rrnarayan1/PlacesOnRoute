@@ -8,3 +8,7 @@ A Web app that routes user from their current location to the ClickTime office, 
 * Gives the user 2 choices in terms of places they could stop at
 * View the map rendering of the directions, as well as step-by-step directions
 * Support for all modes of transportation, including public transportation.
+
+
+
+Adapted from Google Maps Waypoints Example, and inspired by ClickTime.
