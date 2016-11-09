@@ -93,7 +93,7 @@ function getSearchPosition(map,directionsService, currentPosition, clickTimePosi
                 var route = response.routes[0].overview_path;
                 searchPosition=route[Math.floor((multiplier*route.length)/5)-1]
                 console.log("Found place to search with!")  
-                document.getElementById('info').innerHTML = ""
+                document.getElementById('info').innerHTML = "Looking for places to stop at..."
                 var placeRequest = {
                     location: searchPosition,
                     radius: '3000',
@@ -135,6 +135,8 @@ function getSearchPosition(map,directionsService, currentPosition, clickTimePosi
                         }
                         else{
                             console.log("hey got a good place")
+                            document.getElementById('info').innerHTML = ""
+
                             return callback(waypointPlaces); 
                         }
                     } else{
